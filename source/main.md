@@ -57,6 +57,19 @@ Unary Operations only take in one operand.
 - `x--` - Decrements `x` and assigns the value to `x`, assuming it is a variable.
 - `--x` - Returns the decremented value of `x`.
 - `++x` - Returns the incremented value of `x`.
+- `-x` - Gets the negative value of `x`.
+- `!x` - Inverts `x`.
+
+### Conditional Operations
+
+- `&` - Checks if both the left operand and the right operand are true.
+- `|` - Checks if either the left operand or the right operand is true.
+- `>` - Checks if the left operand is greater than the right operand.
+- `>=` - Checks if the left operand is greater than or equal to the right operand.
+- `<` - Checks if the left operand is less than the right operand.
+- `<=` - Checks if the left operand is less than or equal to the right operand.
+- `==` - Checks if the left operand is equal to the right operand.
+- `!=` - Checks if the left operand is not equal to the right operand.
 
 ## Variable Assignment
 
@@ -885,4 +898,5 @@ it will only affect how the function treats the code, but it won't affect the co
 This is useful for headers like **memoize**, which caches function inputs and instantly
 returns the value instead of running the function code if the same inputs are ever given to
 a function.
+
 

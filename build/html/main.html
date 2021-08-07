@@ -151,13 +151,15 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Main Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nativefuncs.html">Native Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bins.html">Bin Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heads.html">Headers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libs.html">Native Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frdge.html">Fridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jpx.html">JPX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resource.html">Resources</a></li>
 </ul>
 
@@ -238,6 +240,21 @@ result of the binary operation <code class="docutils literal notranslate"><span 
 <li><p><code class="docutils literal notranslate"><span class="pre">x--</span></code> - Decrements <code class="docutils literal notranslate"><span class="pre">x</span></code> and assigns the value to <code class="docutils literal notranslate"><span class="pre">x</span></code>, assuming it is a variable.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--x</span></code> - Returns the decremented value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">++x</span></code> - Returns the incremented value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-x</span></code> - Gets the negative value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!x</span></code> - Inverts <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="conditional-operations">
+<h3>Conditional Operations<a class="headerlink" href="#conditional-operations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> - Checks if both the left operand and the right operand are true.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> - Checks if either the left operand or the right operand is true.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> - Checks if the left operand is greater than the right operand.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> - Checks if the left operand is greater than or equal to the right operand.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code> - Checks if the left operand is less than the right operand.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> - Checks if the left operand is less than or equal to the right operand.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> - Checks if the left operand is equal to the right operand.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code> - Checks if the left operand is not equal to the right operand.</p></li>
 </ul>
 </div>
 </div>
@@ -1052,6 +1069,7 @@ a function.</p>
 <li><a class="reference internal" href="#operators">Operators</a><ul>
 <li><a class="reference internal" href="#binary-operations">Binary Operations</a></li>
 <li><a class="reference internal" href="#unary-operations">Unary Operations</a></li>
+<li><a class="reference internal" href="#conditional-operations">Conditional Operations</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#variable-assignment">Variable Assignment</a></li>
