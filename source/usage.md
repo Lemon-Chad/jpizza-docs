@@ -1,0 +1,6 @@
+# Usage
+
+## Installation
+
+To use JPizza, install it using the installer or buiild a jar using the [open source repo](https://github.com/Lemon-Chad/jpizza).
+Then add C:\DP\ to your PATH.
