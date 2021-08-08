@@ -62,8 +62,8 @@ Unary Operations only take in one operand.
 
 ### Conditional Operations
 
-- `&` - Checks if both the left operand and the right operand are true.
-- `|` - Checks if either the left operand or the right operand is true.
+- `&` - Checks if both the left operand, and the right operand are true.
+- `|` - Checks if either the left operand, or the right operand is true.
 - `>` - Checks if the left operand is greater than the right operand.
 - `>=` - Checks if the left operand is greater than or equal to the right operand.
 - `<` - Checks if the left operand is less than the right operand.
@@ -181,10 +181,11 @@ println("Hello" + " " + coolDict["Hello"]);
 ### If Statements
 
 If statements are declared using the '**if**' keyword. The if keyword should
-then be followed with a true/false condition in parentheses, and then braces.
+then be followed with a true/false condition in parentheses, and then the body.
 
-Inside these braces lies code that will execute *if* the true/false condition
-is true.
+The body is the code that is run *if* the true/false condition is true. You can
+use curly braces, (`{}`), to write multiple lines, but if you only want to write one
+line braces are not necessary.
 
 You can add additional branches to the statement using the '**elif**' and '**else**' keywords.
 
@@ -192,7 +193,7 @@ You can add additional branches to the statement using the '**elif**' and '**els
 and should follow an (el)if statements body. These will run if the previous (el)if 
 statement is false, and their condition is true.
 
-**Else** statements are simply the '**else**' keyword followed by the body in braces.
+**Else** statements are simply the '**else**' keyword followed by the bodyz.
 Else statements should come after an (el)if statement, and they only execute if
 the previous (el)if statement is false.
 
@@ -310,7 +311,68 @@ println(match (4) {
 
 ## Loops
 
-JPizza has 3 types of loops, for loops, iterative loops, and while loops.
+JPizza has 5 types of loops, standard loops, **for** loops, **iterative** loops, 
+**while** loops, and **do-while** loops.
+
+### Standard Loops
+
+#### What is a Standard Loop?
+Standard loops are loops that do not have any sort of condition, and simply repeat
+code infinitely until it is stopped, either from inside the code or by the user.
+
+#### How to Make a Standard Loop
+
+To make a standard loop, we simply need to type the keyword '**loop**'.
+Following the **loop** keyword, we need our body. The body is the code that is
+executed during the loop.
+
+JPizza offers two forms of bodies, the arrow form, and the braces form.
+
+##### Arrow Form
+
+Arrow form allows you to quickly write the loop on one line, and return a list
+afterward. 
+
+Using the assignment arrow, (`=>`), followed by an expression, we can
+set the body to the provided expression.
+
+Once the loop finishes, it returns a list in order of each evaluation of the expression.
+
+```jpizza
+var index => 0;
+var lp => loop => if (index > 5) break; 
+                    else index++;
+
+<<
+
+This assigns lp to the value of the loop.
+The loop increments the value index until it is greater than 5.
+This returns a list of [1, 2, 3, 4, 5, 6].
+
+<<
+```
+
+##### Braces Form
+
+Brace form allows you to write multiple lines of code, but with no return value.
+
+By following the condition of the loop with curly braces, (`{}`), we can use
+brace form. Simply insert your code inside the braces to set it to the body.
+
+```jpizza
+var r;
+loop {
+  if ((r => random()) > 0.5)
+    break;
+  println(r);
+}
+
+<<
+
+This loop prints random numbers until one is greater than 0.5.
+
+<<
+```
 
 ### For Loops
 
@@ -355,11 +417,11 @@ set the body to the provided expression.
 Once the loop finishes, it returns a list in order of each evaluation of the expression.
 
 ```jpizza
-var loop => for (n -> 0:3) => 2 ^ n;
+var lp => for (n -> 0:3) => 2 ^ n;
 
 <<
 
-This assigns loop to the value of the for loop.
+This assigns lp to the value of the for loop.
 The loop iterates n over the range 0 to 3. It then evaluates to 2^n.
 This returns a list of [1, 2, 4], as 2 ^ 0 is 1, 2 ^ 1 is 2, and 2 ^ 2 is 4.
 
@@ -427,11 +489,11 @@ set the body to the provided expression.
 Once the loop finishes, it returns a list in order of each evaluation of the expression.
 
 ```jpizza
-var loop => for (n <- [1, 2, 3]) => n + 2;
+var lp => for (n <- [1, 2, 3]) => n + 2;
 
 <<
 
-This assigns loop to the value of the iterative loop.
+This assigns lp to the value of the iterative loop.
 The loop iterates over the list [1, 2, 3] and adds 2 to each.
 This returns a value of [3, 4, 5], as 1 + 2 is 3, 2 + 2 is 4, and 3 + 2 is 5.
 
@@ -484,7 +546,7 @@ Once the loop finishes, it returns a list in order of each evaluation of the exp
 
 ```jpizza
 var a => 1;
-var loop => while (a < 10) => a => -(a + abs(a) / a);
+var lp => while (a < 10) => a => -(a + abs(a) / a);
 
 <> The equation -(a + abs(a) / a) simply causes a to tesselate and iterate, as in:
 <>  1 -> -2
@@ -492,7 +554,7 @@ var loop => while (a < 10) => a => -(a + abs(a) / a);
 
 <<
 
-This assigns loop to the value of the while loop.
+This assigns lp to the value of the while loop.
 This loop executes the body while a is less than 10.
 In the body it reassigns a until it is greater than 10.
 This returns [-2, 3, -4, 5, -6, 7, -8, 9, -10, 11].
@@ -521,6 +583,31 @@ If the loop continues to run, it prints the random number.
 
 <<
 ```
+
+### Do-While Loops
+
+*Please read the section on while loops before reading*
+
+#### What is a Do-While Loop?
+
+Do-while loops are very similar to while loops, except they run the body
+before checking the condition, compared to checking the condition before running
+the body. This causes do-while loops to run at least once before they stop.
+
+#### How to Make a Do-While Loop
+
+Do-while loops start with the keyword '**do**'. After **do**, 
+we have the body, which can be defined the same as a while loop. Finally, we have
+the '**while**' keyword, followed by the condition in parentheses. This should end
+with a semicolon, since it is not a bracket. Your final loop should look something
+like this:
+
+```jpizza
+do {
+  println("This condition is false!");
+} while (1 == 2);
+```
+
 
 ### Keywords
 
