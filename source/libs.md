@@ -35,14 +35,12 @@ Returns true if the file had to be created, false otherwise.
 - `writeSerial<dir, value>` : Serializes the given value and stores it at the given path. If the file does not exist, 
 it will be created. Returns true if the file had to be created, false otherwise.
 
-
 ## HTTPx
 
 `import httpx;`
 
 - `getRequest<url, headers>` : Sends a get request to the given url with the given headers.
 - `postRequest<url, headers, body>` : Sends a post request to the given url with the given headers and body.
-
 
 ## Sockets
 
@@ -72,3 +70,9 @@ it will be created. Returns true if the file had to be created, false otherwise.
 - `clientRecv<clientID>` : Recieves data from the server.
 - `clientClose<clientID>` : Closes the client connection.
 
+## JSON
+
+`import json;`
+
+- `loads<string>` : Converts JSON string to a list/dictionary.
+- `dumps<object>` : Converts a list/dictionary to a JSON string.
