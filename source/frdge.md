@@ -8,13 +8,17 @@ download others.
 
 ## Installation
 
-Simply use the Fridge installer to download Fridge and add C:\FRDGE\ to your PATH.
+First, download the latest ZIP release from the repository. Then extract it into a directory of
+your choosing and add it to your PATH.
+
+You can run Fridge by  typing `frdge.py`, and upon the first run you will need to give it
+the directory where your JPizza JAR/exe is located.
 
 ## How to Upload Packages
 
 First, package your scripts into a zip folder with the same name as the main script.
 
-Next, open a command line prompt in the same directory and run `frdge` to open the Fridge
+Next, open a command line prompt in the same directory and run `frdge.py` to open the Fridge
 interface. Run the command `send <yourZipFile>.zip` to start the upload process.
 
 ### Keys
@@ -36,6 +40,6 @@ Congratulations! Your package is now available to all JPizza users!
 
 ## How to Download Packages
 
-Downloading packages is simple. Open a new command line prompt and type `frdge` to open the
+Downloading packages is simple. Open a new command line prompt and type `frdge.py` to open the
 Fridge interface. Type the command `get <packageName>` to download the specified package.
 The package and its dependencies will be installed, and are now usable in your programs.
