@@ -783,8 +783,56 @@ if (favorite == PizzaToppings::pineapple) {
 }
 ```
 
+## Structures
 
+### What are Structures?
 
+Structures, or structs for short, are an easy way to create custom data 
+structures. You can use structs to easily store several pieces of data all 
+with unique names and access them later.
+
+### How to Make a Structure
+
+You can define a structure similar to an enumerator. First, start with the keyword
+'**struct**', followed by the name of your data structure type.
+
+After this comes the body. Open with curly braces, (`{}`), and list each attribute
+of the struct with commas in between. After closing with a curly bracket and
+a semicolon, your struct is complete.
+
+```jpizza
+struct Vector3 {
+  x,
+  y,
+  z
+};
+
+<> Creates a new struct Vector3 with the attributes
+<> x, y, and z.
+```
+
+### Using Structures
+
+You can create new instances of structures by calling them like a function and passing
+each attribute in. The order in which you pass the attributes in should follow
+the order of definition.
+
+You can access data from a struct instance with the double colon operator, (`::`), followed
+by the attribute name.
+
+```jpizza
+struct Message {
+  username,
+  contents
+};
+
+var msg => Message("John Doe", "Hello world!");
+<> Creates a new message instance.
+
+println(msg::contents);
+<> Gets the contents of the message and 
+<> prints them out.
+```
 
 ## Objects
 
