@@ -46,7 +46,7 @@ Binary operations take in two operands.
 - `/` - Divides the left operand by the right.
 - `^` - Raises the left operand to the power of the right operand.
 - `%` - Gets the left operand modulo the right operand.
-- `x=` (*where x is any binary operation*) - Assigns the left operand, assuming it is a variable, to the 
+- `x=` (*where x is any binary operation above*) - Assigns the left operand, assuming it is a variable, to the 
   result of the binary operation `x`.
 
 ### Unary Operations
@@ -59,6 +59,9 @@ Unary Operations only take in one operand.
 - `++x` - Returns the incremented value of `x`.
 - `-x` - Gets the negative value of `x`.
 - `!x` - Inverts `x`.
+- `@x` - Converts `x` into a byte array.
+- `$x` - Turns byte array `x` into an object.
+- `~x` - Gets the binary complement of integer `x`.
 
 ### Conditional Operations
 
@@ -70,6 +73,15 @@ Unary Operations only take in one operand.
 - `<=` - Checks if the left operand is less than or equal to the right operand.
 - `==` - Checks if the left operand is equal to the right operand.
 - `!=` - Checks if the left operand is not equal to the right operand.
+
+### Bit Operations
+
+- `~&` - Gets the bitwise and of both operands.
+- `~|` - Gets the bitwise or of both operands.
+- `~^` - Gets the bitwise xor of both operands.
+- `<~` - Bit shifts the left operand by the right operand.
+- `~~` - Performs an unsigned bit shift on the left operand by the right operand.
+- `~>` - Performs a signed bit shift on the left operand by the right operand.
 
 ## Variable Assignment
 

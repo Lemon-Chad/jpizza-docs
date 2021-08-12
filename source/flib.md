@@ -52,7 +52,9 @@
 **Note**: *You will never construct this object yourself.*
 
 - `send<msg>` - Sends the client the given message.
+- `sendBytes<bytearray>` - Sends the client the given byte array.
 - `recv` - Recieves data from the client.
+- `recvBytes` - Recieves a byte array from the client.
 - `close` - Closes the connection.
 
 ### Socket Object
@@ -67,5 +69,7 @@
 `SocketClient(host#String, port#num);`
 
 - `send<msg>` - Sends the server the given message.
+- `sendBytes<msg>` - Sends the server the given message.
 - `recv` - Recieves data from the server.
+- `recvBytes` - Recieves data from the server.
 - `close` - Closes the connection.
