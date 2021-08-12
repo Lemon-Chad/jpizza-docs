@@ -61,13 +61,17 @@ it will be created. Returns true if the file had to be created, false otherwise.
 ### Connection Functions
 
 - `serverSend<connID, msg>` : Sends the given msg to the connection.
+- `serverSendBytes<connID, bytearray>` : Sends the given byte array to the connection.
 - `serverRecv<connID>` : Recieves data from the connection.
+- `serverRecvBytes<connID>` : Recieves a byte array from the connection.
 - `closeServerConnection<connID>` : Closes the given connection.
 
 ### Client Functions
 
 - `clientSend<clientID, msg>` : Sends the server the given msg through the client.
+- `clientSendBytes<clientID, bytearray>` : Sends the server the given byte array through the client.
 - `clientRecv<clientID>` : Recieves data from the server.
+- `clientRecvBytes<clientID>` : Recieves a byte array from the server.
 - `clientClose<clientID>` : Closes the client connection.
 
 ## JSON
