@@ -1015,7 +1015,7 @@ recipe Child -> Parent {
     attr inheritedAttribute => x + 2;
     <> Overrides the default constructor and replaces it with this one, which adds 2 to x before assigning it to v.
   }
-}
+};
 
 println(Parent(5)::inheritedFunction(2));
 <> Prints 7.
