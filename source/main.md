@@ -988,6 +988,42 @@ myPizza::details();
 <> Calls the details function of the pizza instance.
 ```
 
+### Complex Objects
+
+Objects have some special properties that make things easier.
+
+#### Inheritance
+
+Inheritance simply means that we can give an object a parent object, and it "inherits" all its attributes, methods, and constructor properties. These can be 
+overwritten simply by defining it in the object, but it's useful if you have several objects all with the same methods. You can just make a parent object!
+
+To give an object a parent, you can use the temporary assignment arrow, (`->`), after the object name and follow it with the name of the parent object.
+
+```
+recipe Parent {
+  inheritedAttribute;
+  ingredients<x> {
+    attr inheritedAttribute => x;
+  }
+
+  method inheritedFunction<y> -> this::inheritedAttribute + y
+
+};
+
+recipe Child -> Parent {
+  ingredients<x> {
+    attr inheritedAttribute => x + 2;
+    <> Overrides the default constructor and replaces it with this one, which adds 2 to x before assigning it to v.
+  }
+}
+
+println(Parent(5)::inheritedFunction(2));
+<> Prints 7.
+
+println(Child(5)::inheritedFunction(2));
+<> Prints 9, since 2 is added to x in the overridden constructor.
+```
+
 ## Packages
 A useful feature of Pizza is the import and packages system.
 
