@@ -57,6 +57,7 @@
 - `list<value>` : Converts the given value to a list.
 - `dict<value>` : Converts the given value to a dictionary.
 - `func<value>` : Converts the given value to a function... for some reason.
+- `byter<value>` : Converts a list of numbers into a byte array.
 
 ## String Modifiers
 
