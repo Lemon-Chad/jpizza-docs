@@ -32,8 +32,8 @@ Returns true if the file had to be created, false otherwise.
 ### Serialization
 
 - `readSerial<dir>` : Reads and deserializes a stored JPizza object in the specified file and returns the object.
-- `writeSerial<dir, value>` : Serializes the given value and stores it at the given path. If the file does not exist, 
-it will be created. Returns true if the file had to be created, false otherwise.
+- `writeSerial<dir, value>` : Serializes the given value and stores it at the given path. If the value is a bytearray, the bytes will be written to the file. 
+If the file does not exist, it will be created. Returns true if the file had to be created, false otherwise.
 
 ## HTTPx
 
