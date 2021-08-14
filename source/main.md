@@ -999,7 +999,7 @@ overwritten simply by defining it in the object, but it's useful if you have sev
 
 To give an object a parent, you can use the temporary assignment arrow, (`->`), after the object name and follow it with the name of the parent object.
 
-```
+```jpizza
 recipe Parent {
   inheritedAttribute;
   ingredients<x> {
