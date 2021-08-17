@@ -1083,3 +1083,59 @@ returns the value instead of running the function code if the same inputs are ev
 a function.
 
 
+
+## Error Handling
+
+Error handling in JPizza is similar to a language called Rust. We can make functions return a **Resolve** object which contains an error and a value.
+If the function failed, the object will only contain the error, and trying to access the value will result in another error.
+You can check if a resolve is error free with the `ok` function.
+
+### How to Get a Resolve Object
+
+To get a **Resolve** object, we need to make our function a catcher function. We can do this by append a pair of brackets `[]` to the end of a functions arguments.
+If no arguments, then name, no name then keyword. To create a demo function, we're going to use the '**throw**' keyword. This allows us to create a custom error by
+"throwing" the statement following it as an error message.
+
+```jpizza
+fn myIffyFunction[] {
+  var r => random();
+
+  if (r > 0.5)
+    throw 'Fail!!!';
+
+  return r;
+}
+
+<> This function will fail 50% of the time and return a random number the other 50%.
+```
+
+### Handling Resolves
+
+There are several special functions that we can use to handle **Resolves**. 
+
+The first function is `ok`. Doing `ok(res)` will return a bool determining whether the object is error free. 
+
+If our object is error free, we can safely call `resolve(res)`, which will return the value of the **Resolve**. Beware! If there is an error and
+no value, this will throw an error. Always do some form of `if (ok(res))` before.
+
+The next function is `catch(res)`, which will return the error message of the object. We can then handle the error as we please.
+
+If we want to throw the error anyway, we can call `fail(res)`, which throws the error stored.
+
+```jpizza
+<> Assume the "myIffyFunction" from earlier is defined here.
+
+var res => myIffyFunction();
+<> ^^ Assigns the result to res.
+<> VV Checks if the result is error free.
+if (ok(res)) {
+  println(resolve(res));
+  <> Prints the random number returned.
+
+} else {
+  println("Encountered error: " + catch(res));
+  <> Prints "Encountered error: <Error Message>".
+
+}
+
+```
