@@ -128,6 +128,19 @@ x => 8; <> Ok!
 x => "Hello!"; <> Error!
 ```
 
+One final special feature of variables is range limitations. In JPizza, you can use square brackets following a variable name to limit the range
+that a numeric value may lie in under that variable. By default, the value you enter will be the maximum, and the minimum will be set to 0. To add a
+custom minimum along with the maximum, you can have the minimum, followed by a pipe, (`|`), and then the maximum.
+
+```jpizza
+var sbyte [ -127 | 127 ] => 56;
+<> Limits the variable sbyte to a range of -127 <= n <= 127.
+var usbyte [ 255 ] => 12;
+<> Limits the variable usbyte to a range of 0 <= n <= 255.
+
+<> Assigning either variable to a non-numeric or a number outside of the range causes a runtime error!
+```
+
 ## Lists
 
 Lists are, simply put, a list or array of values.
@@ -646,6 +659,8 @@ This should then be followed by the function name.
 You can omitt the function name to make it anonymous. 
 In the case of anonymous functions, it's better to use an exclamation mark to turn it into a lambda.
 
+**NOTE:** *Anonymous functions must be followed by a semicolon, even if you're using curly braces, (`{}`).*
+
 #### Arguments
 
 After this, you put the name of each argument seperated by a comma inside of angle brackets, (`<>`). 
@@ -793,6 +808,23 @@ var favorite => PizzaToppings::sausage;
 if (favorite == PizzaToppings::pineapple) {
   println("You are mentally unstable.");
 }
+```
+
+### Complex Enumerators
+
+Along with enums, you can add properties to each child. Adding properties essentially allows you to construct a unique instance of each child except it has additional
+properties that can be accessed. You can add properties to children by adding curly braces after the child name, and put each property seperated by a comma inside them. You can then instance the child by calling it like a function.
+
+```jpizza
+enum Message {
+    Quit,
+    Move { x, y },
+    Write { text },
+    ChangeColor { r, g, b },
+};
+
+var write => Message::Write("mytext");
+println(write::text); <> Prints "mytext"
 ```
 
 ## Structures
