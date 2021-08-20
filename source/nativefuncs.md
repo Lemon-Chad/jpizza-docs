@@ -20,6 +20,7 @@
 - `isNull<value>` : Returns if the given value is null.
 - `isBool<value>` : Returns if the given value is boolean.
 - `type<value>` : Returns the type of the given value as a string.
+- `enumProps<inst, prop>` : Returns if the given instance is an instance of the provided enum property.
 
 ## List Modifiers
 

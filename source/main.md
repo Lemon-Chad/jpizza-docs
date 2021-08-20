@@ -813,14 +813,14 @@ if (favorite == PizzaToppings::pineapple) {
 ### Complex Enumerators
 
 Along with enums, you can add properties to each child. Adding properties essentially allows you to construct a unique instance of each child except it has additional
-properties that can be accessed. You can add properties to children by adding curly braces after the child name, and put each property seperated by a comma inside them. You can then instance the child by calling it like a function.
+properties that can be accessed. You can add properties to children by adding curly braces after the child name, and put each property seperated by a comma inside them. You can statically type each property by following it with a colon and then the type. You can then instance the child by calling it like a function.
 
 ```jpizza
 enum Message {
     Quit,
-    Move { x, y },
-    Write { text },
-    ChangeColor { r, g, b },
+    Move { x: num, y: num },
+    Write { text: any },
+    ChangeColor { r: num, g: num, b: num },
 };
 
 var write => Message::Write("mytext");
