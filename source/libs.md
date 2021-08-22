@@ -109,6 +109,7 @@ To start using `awt`, you must call `awt::init()`. If not, all other functions w
     - `"I"` -> Italic
     - `"P"` -> Plain
 - `setBackgroundColor<color>` : Sets the background to the given color.
+- `lockSize<bool>` : Disables/enables the ability to resize the window.
 
 ### Rendering
 
@@ -119,6 +120,7 @@ To start using `awt`, you must call `awt::init()`. If not, all other functions w
 - `refreshUnloop` : Stops the refresh loop.
 - `screenshot<filepath>` : Saves the current canvas to an image file which will be stored at the given path.
 - `fps` : Returns the given FPS.
+- `gpuCompute<bool>` : Sets gpu computing to true/false.
 
 ### QRendering
 

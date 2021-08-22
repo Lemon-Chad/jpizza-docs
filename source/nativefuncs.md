@@ -33,6 +33,8 @@
 - `foreach<list, func>` : Applies the given function to each element of the list.
 - `choose<list>` : Chooses a random item from the list.
 - `contains<list, value>` : Returns true if the list contains the value.
+- `sublist<list, start, end>` : Returns the sublist between the start and end indices.\
+- `join<str, list>` : Returns a string of each item in the list seperated by `str`, for example: `join(" ", ["Hello,", "World!"]) -> "Hello, World!"`
 
 ## Dictionary Modifiers
 
@@ -78,6 +80,7 @@
 - `strLower<string>` : Returns the string with all letters lowercase.
 - `strShift<string>` : Returns the string with all characters in the form they would be if you were to hold shift.
 - `strUnshift<string>` : Returns the string with all characters in their form if you were to not hold shift. (Inverse of `strShift`)
+- `substr<str, start, end>` : Returns the substring between the start and end indices.
 
 ## Object Functions
 
