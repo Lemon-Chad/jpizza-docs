@@ -33,7 +33,7 @@
 - `foreach<list, func>` : Applies the given function to each element of the list.
 - `choose<list>` : Chooses a random item from the list.
 - `contains<list, value>` : Returns true if the list contains the value.
-- `sublist<list, start, end>` : Returns the sublist between the start and end indices.\
+- `sublist<list, start, end>` : Returns the sublist between the start and end indices.
 - `join<str, list>` : Returns a string of each item in the list seperated by `str`, for example: `join(" ", ["Hello,", "World!"]) -> "Hello, World!"`
 
 ## Dictionary Modifiers
