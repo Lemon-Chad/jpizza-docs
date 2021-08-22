@@ -28,6 +28,7 @@
 - `pop<list, index>` : Removes the item at the given index from the list.
 - `extend<list, list>` : Returns the concatenation of the two lists.
 - `insert<list, item, index>` : Inserts the given item at the given index of the list.
+- `setIndex<list, item, index>` : Sets the given index to the given item of the list.
 - `size<list>` : Returns the size of the given list.
 - `foreach<list, func>` : Applies the given function to each element of the list.
 - `choose<list>` : Chooses a random item from the list.
@@ -73,6 +74,10 @@
 
 - `split<string, delimiter>` : Splits the string into a list every time the delimiter is found.
 - `contains<string, value>` : Returns true if the string contains the value.
+- `strUpper<string>` : Returns the string with all letters uppercase.
+- `strLower<string>` : Returns the string with all letters lowercase.
+- `strShift<string>` : Returns the string with all characters in the form they would be if you were to hold shift.
+- `strUnshift<string>` : Returns the string with all characters in their form if you were to not hold shift. (Inverse of `strShift`)
 
 ## Object Functions
 
