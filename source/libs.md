@@ -95,7 +95,7 @@ Colors for `awt` should be a list of 3 integers in the range 0 to 255, like `[25
 - `drawRect<length, x, y, color>` : Draws a square of the given color with the center at (x, y) with dimensions length x length.
 - `drawText<text, x, y, color>` : Writes text at (x, y) in the given color.
 - `drawImage<x, y, filepath>` : Draws the image at the given path at (x, y).
-- `setPixel<x, y, color>` : Sets the pixel at (x, y) to the given color.
+- `setPixel<x, y, color>` : Sets the pixel at (x, y) to the given color. 
 
 ### Config
 
