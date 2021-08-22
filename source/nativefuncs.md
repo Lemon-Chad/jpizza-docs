@@ -49,6 +49,8 @@
 - `random` : Returns a random number between 0 and 1.
 - `randint<min, max>` : Returns a random number between the min and max.
 - `floating<value>` : Returns if the number is a floating point number.
+- `max<a, b>` : Returns the maximum value between `a` and `b`.
+- `min<a, b>` : Returns the minimum value between `a` and `b`.
 
 ## Type Conversions
 

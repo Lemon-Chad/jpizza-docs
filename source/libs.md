@@ -95,13 +95,13 @@ Colors for `awt` should be a list of 3 integers in the range 0 to 255, like `[25
 - `drawRect<length, x, y, color>` : Draws a square of the given color with the center at (x, y) with dimensions length x length.
 - `drawText<text, x, y, color>` : Writes text at (x, y) in the given color.
 - `drawImage<x, y, filepath>` : Draws the image at the given path at (x, y).
+- `setPixel<x, y, color>` : Sets the pixel at (x, y) to the given color.
 
 ### Config
 
 - `setTitle<title>` : Sets the window title to the given title.
 - `setSize<width, height>` : Sets the window dimensions to width x height.
 - `setIcon<filepath>` : Sets the window icon to the given image.
-- `setPixel<x, y, color>` : Sets the pixel at (x, y) to the given color.
 - `setFont<name, type, size>` : Sets the current font to the given font with formatting of the given type and of the given size. Types include:
     - `"B"` -> Bold
     - `"I"` -> Italic
