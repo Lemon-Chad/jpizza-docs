@@ -87,6 +87,8 @@ If the file does not exist, it will be created. Returns true if the file had to 
 
 Colors for `awt` should be a list of 3 integers in the range 0 to 255, like `[255, 0, 0]` for red. `[r, g, b]`
 
+To start using `awt`, you must call `awt::init()`. If not, all other functions will fail!
+
 ### Draw Functions
 
 - `drawOval<x, y, width, height, color>` : Draws an oval of the given color with the center at (x, y) with dimensions width x height.
@@ -114,6 +116,7 @@ Colors for `awt` should be a list of 3 integers in the range 0 to 255, like `[25
 - `clear` : Clears the canvas.
 - `refresh` : Refreshes the canvas.
 - `refreshLoop` : Refreshs the canvas at 60fps in the background.
+- `refreshUnloop` : Stops the refresh loop.
 - `screenshot<filepath>` : Saves the current canvas to an image file which will be stored at the given path.
 - `fps` : Returns the given FPS.
 
@@ -143,3 +146,21 @@ Keys should be given as strings, like `"a"`, `" "`, or `"enter"`.
 ### Audio
 
 - `playSound<filepath>` : Plays the sound at the path.
+
+## Boilerplate
+
+Some simple boilerplate code for creating an app is provided below.
+
+```jpizza
+import awt;
+awt::init();
+
+awt::setSize(800, 800);
+awt::start();
+
+awt::refreshLoop();
+awt::toggleQRender();
+
+awt::drawCircle(100, 400, 400, [50, 50, 50]);
+awt::qUpdate();
+```
