@@ -51,6 +51,13 @@
 - `floating<value>` : Returns if the number is a floating point number.
 - `max<a, b>` : Returns the maximum value between `a` and `b`.
 - `min<a, b>` : Returns the minimum value between `a` and `b`.
+- `sin<x>` : Returns the sine of `x`.
+- `cos<x>` : Returns the cosine of `x`.
+- `tan<x>` : Returns the tangent of `x`.
+- `arcsin<x>` : Returns the inverse sin of `x`.
+- `arccos<x>` : Returns the inverse cosine of `x`.
+- `arctan<x>` : Returns the inverse tangent of `x`.
+- `arctan2<y, x>` : Returns the inverse tangent of `y` and `x`.
 
 ## Type Conversions
 
