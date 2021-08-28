@@ -45,6 +45,9 @@
 
 ## Numerical Functions
 
+- `pi` : π.
+- `euler`: *e*.
+- `log<value, base>` : Gets the logarithm of the provided value using the base.
 - `round<value>` : Rounds the value to the nearest whole number.
 - `floor<value>` : Rounds the value down.
 - `ceil<value>` : Rounds the value up.
@@ -86,3 +89,7 @@
 
 - `getattr<instance, attribute>` : Uses the vanilla get method to access the instances value.
 - `hasattr<instance, attribute>` : Returns true if the instance has the attribute in question.
+
+## Internal
+
+- `_version_` : Returns the version number of your JPizza installation.

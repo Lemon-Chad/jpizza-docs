@@ -141,6 +141,18 @@ var usbyte [ 255 ] => 12;
 <> Assigning either variable to a non-numeric or a number outside of the range causes a runtime error!
 ```
 
+## Format Strings
+
+Format strings give you the ability to directly inline variables and expressions into strings! To do this, create a string using backticks, (`` ` ``), and inline
+any variables inside of brackets prefixed with a dollar sign. To escape that, you can prefix the dollar sign with an exclamation mark.
+
+```jpizza
+var x => 4;
+
+println(`The value of x is ${x}`); <> Prints "The value of x is 4".
+println(`To write ${x} you can do !${x}`); <> Prints "To write 4 you can do ${x}".
+```
+
 ## Lists
 
 Lists are, simply put, a list or array of values.
