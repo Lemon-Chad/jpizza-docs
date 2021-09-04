@@ -99,6 +99,16 @@ x => 4;
 y => "Goodbye!"; <> Throws an error since y is a baked variable.
 ```
 
+If you want to remove a variable from the scope, you can use the `free` keyword followed by the variable name.
+
+```jpizza
+var x => 2;
+println(x); <> 2
+
+free x;
+println(x); <> Error!
+```
+
 There is also a unique type of variable known as a callback variable.
 This type of variable does not store a value, but instead stores its expression.
 Whenver it is referenced, it returns the computed expression.

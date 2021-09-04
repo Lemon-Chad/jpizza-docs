@@ -9,6 +9,14 @@
 - `stopwatch<func>` : Returns the amount of milliseconds taken to execute the specified function.
 - `epoch` : Gets the current epoch time in milliseconds.
 
+## Gens
+
+`import gens;`
+
+- `range<start, stop, step>` : Returns a list of numbers starting at `start` and ending at `stop`, increasing by `step`.
+- `linear<start, stop, step, slope, y-inter>` : Returns a list of numbers starting at `start` and ending at `stop`, increasing by `step` with the function `x -> slope * x + y-inter` applied to each.
+- `quadratic<start, stop, step, a, b, c>` : Returns a list of numbers starting at `start` and ending at `stop`, increasing by `step`, with the function `x -> a * x * x + b * x + c` applied to each.
+
 ## IOFile
 
 `import iofile;`
@@ -32,6 +40,7 @@ Returns true if the file had to be created, false otherwise.
 ### Serialization
 
 - `readSerial<dir>` : Reads and deserializes a stored JPizza object in the specified file and returns the object.
+- `readBytes<dir>` : Reads the contents of the specified file and returns the contents as a byte array.
 - `writeSerial<dir, value>` : Serializes the given value and stores it at the given path. If the value is a bytearray, the bytes will be written to the file. 
 If the file does not exist, it will be created. Returns true if the file had to be created, false otherwise.
 
@@ -91,6 +100,8 @@ To start using `awt`, you must call `awt::init()`. If not, all other functions w
 
 ### Draw Functions
 
+- `drawPoly<points, color>` : Draws a polygon with the vertices being the given points and shaded in the given color.
+- `tracePoly<points, color>` : Draws the outline of a polygon with the vertices being the given points and shaded in the given color.
 - `drawOval<x, y, width, height, color>` : Draws an oval of the given color with the center at (x, y) with dimensions width x height.
 - `drawCircle<r, x, y, color>` : Draws a circle of the given color with the center at (x, y) and a radius of r.
 - `drawRect<x, y, width, height, color>` : Draws a rectangle of the given color with the center at (x, y) with dimensions width x height.
