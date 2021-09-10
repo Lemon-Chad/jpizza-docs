@@ -83,6 +83,24 @@ Unary Operations only take in one operand.
 - `~~` - Performs an unsigned bit shift on the left operand by the right operand.
 - `~>` - Performs a signed bit shift on the left operand by the right operand.
 
+## Advanced Numbers
+
+JPizza has some additional number properties.
+
+### Hex Numbers
+
+You can create a hex number by typing `0x` followed by your hex number. These have the type of `hex`, and are represented as `0xHEXNUMBER` when printed. Adding a hex number to a normal number results in a normal number, but adding a normal number to a hex number results in a hex number.
+
+`1 + 0x1 = 2`
+`0x1 + 1 = 0x2`
+
+### Algebraic Multiplication
+
+Similar to algebra, you can enter commands such as `3x` as a shorthand for `3 * x`. However, you cannot do this with two variables, only a variable in a number. Attempting to do `xy` results in an error, since it treats `xy` as one word.
+
+`var x => 4;`
+`3x -> 12`
+
 ## Variable Assignment
 
 Variables are defined using the keywords '**var**' and '**bake**'.
@@ -756,6 +774,21 @@ fn add<x#num, y#num> = num {
 <> = num makes the return value a number.
 ```
 
+#### Generic Typing
+
+Along with static typing, you can use generic typing. Simply follow the arguments with parenthesis containing the generic type names. When calling the function, pass in the types inside angle brackets after the arguments.
+
+```jpizza
+fn myGeneric<x #T>(T) -> println(`${x} has a generic type of ${T}`);
+
+myGeneric(2)<num>;
+
+<<
+Console Output:
+"2 has a generic type of num"
+<<
+```
+
 #### Default Arguments
 
 We can do even more with arguments after this too. We can add default values to arguments,
@@ -799,6 +832,32 @@ printTen("This is asynchronous!");
 printTen("This is also asynchronous!");
 
 <> Both messages are printed ten times simultaneously.
+```
+
+#### Processing
+
+Similar to Python's decorators, you can add pre/post processors to your functions using the `preprocess` and `postprocess` functions. Preprocessors are given the arguments that the parent function is given, and called in order of appendage. Postprocessors are given the arguments that the parent function is given ALONG WITH the parent functions return value. Whatever the postprocessor returns is considered the return value of the function. If there are multiple postprocessors, the return value will be that of the last postprocessor.
+
+*Bonus Feature: The preprocess and postprocess functions return the function they modify, so they can be chained!*
+
+```jpizza
+fn myCoolFunc<x> -> x + 1;
+
+preprocess(myCoolFunc, !<x> -> println(x)), <> Assigns a preprocessor that prints the argument passed into it.
+postprocess(myCoolFunc, !<_, r> {
+  println(r);
+  return r;
+}); <> Assigns a postprocessor that prints the parent's return value before returning it.
+
+<> Even though processors can be chained, I chose not to for readability in this example.
+
+myCoolFunc(5);
+
+<<
+Console Output:
+5
+6
+<<
 ```
 
 ## Enumerators
@@ -974,6 +1033,10 @@ recipe Pizza {
 Constructors support the same static typing and default arguments as functions,
 however, they do not return a value.
 
+You can also use generic typing on constructors the same as you would functions. To pass in generic types, you would simply append the generic types to the end of the class call in angle brackets.
+
+`var cls => GenericClass(args)<types>;`
+
 #### Methods
 
 ##### What is a Method?
@@ -998,7 +1061,7 @@ recipe Pizza {
 
 ##### Complex Methods
 
-Methods support static typing, asynchronous execution, and default arguments
+Methods support static typing, asynchronous execution, generic typing, and default arguments
 just like functions.
 
 However, methods have another special trait, which is the '**bin**' keyword.
