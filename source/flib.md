@@ -54,7 +54,8 @@
 - `send<msg>` - Sends the client the given message.
 - `sendBytes<bytearray>` - Sends the client the given byte array.
 - `recv` - Recieves data from the client.
-- `recvBytes` - Recieves a byte array from the client.
+- `recvBytes<length>` - Recieves a byte array from the client of the given length.
+- `recvAllBytes` - Recieves a byte array from the client.
 - `close` - Closes the connection.
 
 ### Socket Object
@@ -71,5 +72,6 @@
 - `send<msg>` - Sends the server the given message.
 - `sendBytes<msg>` - Sends the server the given message.
 - `recv` - Recieves data from the server.
-- `recvBytes` - Recieves data from the server.
+- `recvBytes<length>` - Recieves data from the server of the given length.
+- `recvAllBytes` - Recieves data from the server.
 - `close` - Closes the connection.

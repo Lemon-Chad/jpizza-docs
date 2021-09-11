@@ -104,7 +104,8 @@ The expected return type should be of:
 - `serverSend<connID, msg>` : Sends the given msg to the connection.
 - `serverSendBytes<connID, bytearray>` : Sends the given byte array to the connection.
 - `serverRecv<connID>` : Recieves data from the connection.
-- `serverRecvBytes<connID>` : Recieves a byte array from the connection.
+- `serverRecvBytes<connID, length>` : Recieves a byte array from the connection of the given length.
+- `serverRecvAllBytes<connID>` : Recieves a byte array from the connection.
 - `closeServerConnection<connID>` : Closes the given connection.
 
 ### Client Functions
@@ -112,7 +113,8 @@ The expected return type should be of:
 - `clientSend<clientID, msg>` : Sends the server the given msg through the client.
 - `clientSendBytes<clientID, bytearray>` : Sends the server the given byte array through the client.
 - `clientRecv<clientID>` : Recieves data from the server.
-- `clientRecvBytes<clientID>` : Recieves a byte array from the server.
+- `clientRecvBytes<clientID, length>` : Recieves a byte array from the server of the given length.
+- `clientRecvAllBytes<clientID>` : Recieves a byte array from the server.
 - `clientClose<clientID>` : Closes the client connection.
 
 ## JSON
