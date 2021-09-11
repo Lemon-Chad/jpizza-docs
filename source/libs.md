@@ -51,6 +51,38 @@ If the file does not exist, it will be created. Returns true if the file had to 
 - `getRequest<url, headers>` : Sends a get request to the given url with the given headers.
 - `postRequest<url, headers, body>` : Sends a post request to the given url with the given headers and body.
 
+## Pretzel
+
+`import pretzel;`
+
+- `init<host, port>` : Initializes the webserver on `host:port`.
+- `route<addr, func>` : Whenever `addr` is queried, it sends data about the request to the function passed in, and sends back the data the function returns.
+- `start` : Starts the webserver.
+
+### Data
+
+Route functions are given data that looks like this:
+```json
+{
+    "method": "Request Method, usually GET or POST",
+    "uri": "The uri used, like /test?abc=xyz",
+    "body": "The body passed in.",
+    "headers": {
+        "the": ["headers given"],
+        "from": ["post requests"]
+    }
+}
+```
+
+The expected return type should be of:
+```json
+{
+    "code": 200, // The response code, like 200, 400, 404, etc.
+    "header": "<h1>The value to return</h1>"
+}
+```
+
+
 ## Sockets
 
 `import sockets;`
@@ -160,7 +192,7 @@ Keys should be given as strings, like `"a"`, `" "`, or `"enter"`.
 
 - `playSound<filepath>` : Plays the sound at the path.
 
-## Boilerplate
+### Boilerplate
 
 Some simple boilerplate code for creating an app is provided below.
 

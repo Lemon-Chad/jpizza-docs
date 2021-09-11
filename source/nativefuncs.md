@@ -84,6 +84,7 @@
 - `strShift<string>` : Returns the string with all characters in the form they would be if you were to hold shift.
 - `strUnshift<string>` : Returns the string with all characters in their form if you were to not hold shift. (Inverse of `strShift`)
 - `substr<str, start, end>` : Returns the substring between the start and end indices.
+- `replace<str, old, new>` : Replaces each instance of `old` in `str` with `new`.
 
 ## Object Functions
 
