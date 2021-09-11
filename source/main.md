@@ -46,8 +46,8 @@ Binary operations take in two operands.
 - `/` - Divides the left operand by the right.
 - `^` - Raises the left operand to the power of the right operand.
 - `%` - Gets the left operand modulo the right operand.
-- `x=` (*where x is any binary operation above*) - Assigns the left operand, assuming it is a variable, to the 
-  result of the binary operation `x`.
+- `x=` (*where x is any binary operation above*) - Assigns the left operand, assuming it is a variable, to the result of the binary operation `x`.
+- `:` - Returns the left value unless it is `null` or causes an error, in which case it returns the right value. If the right value causes an error, it returns `null`.
 
 ### Unary Operations
 
