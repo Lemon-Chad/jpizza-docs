@@ -48,8 +48,15 @@ If the file does not exist, it will be created. Returns true if the file had to 
 
 `import httpx;`
 
-- `getRequest<url, headers>` : Sends a get request to the given url with the given headers.
-- `postRequest<url, headers, body>` : Sends a post request to the given url with the given headers and body.
+- `getRequest<url, headers>` : Sends a **GET** request to the given url with the given headers.
+- `deleteRequest<url, headers>` : Sends a **DELETE** request to the given url with the given headers.
+- `postRequest<url, headers, body>` : Sends a **POST** request to the given url with the given headers and body.
+- `traceRequest<url, headers, body>` : Sends a **TRACE** request to the given url with the given headers and body.
+- `patchRequest<url, headers, body>` : Sends a **PATCH** request to the given url with the given headers and body.
+- `putRequest<url, headers, body>` : Sends a **PUT** request to the given url with the given headers and body.
+- `optionsRequest<url, headers, body>` : Sends an **OPTIONS** request to the given url with the given headers and body.
+- `connectRequest<url, headers, body>` : Sends a **CONNECT** request to the given url with the given headers and body.
+- `headRequest<url, headers, body>` : Sends a **HEAD** request to the given url with the given headers and body.
 
 ## Pretzel
 
