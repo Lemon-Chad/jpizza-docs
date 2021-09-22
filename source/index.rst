@@ -13,7 +13,5 @@ Welcome to JPizza's documentation!
    bins.md
    heads.md
    libs.md
-   flib.md
-   frdge.md
    jpx.md
    resource.md
