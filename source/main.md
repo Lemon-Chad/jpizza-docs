@@ -1209,7 +1209,7 @@ like its functions, variables, classes, and other components. This can be done
 similarly to accessing class attributes, using the double colon operator, (`::`).
 
 You can import both local and global scripts. To make a script global, make a new folder
-under `C:\DP\modules\ ` with the same name as the script, (*minus the file extension*), 
+under `~/.jpizza/modules/` with the same name as the script, (*minus the file extension*), 
 then put the script in there.
 
 ```jpizza
@@ -1227,6 +1227,18 @@ otherScript::sayHello();
 <> Prints "Hello another world!".
 ```
 
+## Extensions
+You can extend JPizza with extensions written in Java that function as packs of new libraries. This can be done with the **extend** keyword followed by the extension name (*minus the file extension*). This gives you access to all of the libraries the extension has, which can then be imported.
+
+You can extend both local and global extensions. To make an extension global, make a new folder under `~/.jpizza/extensions/` with the same name as the extension, (*minus the file extension*), and then put the jar in there.
+
+```jpizza
+extend MyCoolExtension;
+import mycoollibrary;
+
+mycoollibrary::myCoolFunction();
+<> Runs myCoolFunction
+```
 
 ## Headers
 
