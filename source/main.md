@@ -832,6 +832,45 @@ println(add(7, 2));
 <> Prints 9, since y is accounted for.
 ```
 
+#### Iterative Arguments
+
+You can get any extra arguments passed in as a list by putting `..` followed by the name you want it to be assigned to at the end of your arguments. Following this with any more argument names will cause an error.
+
+```jpizza
+fn iterativePrint<..messages> {
+  <> Iterates through each argument and prints it
+  for (i <- messages) {
+    print(i);
+  }
+}
+
+iterativePrint("a", "b", "c");
+<> Passes in ["a", "b", "c"] to the function as the variable 'messages'
+<> Ends up printing abc
+```
+
+#### Keyword Arguments
+
+You can get a dictionary of specifically named arguments by putting a backslash after your last argument and then the name of what you want the dictionary to be passed in as. To give a function specifically named arguments, follow your last argument with a backslash when calling it. After the backslash give it all of your named arguments in the format `name: value`, each seperated by a comma.
+
+```jpizza
+fn printNamed<\ dict> {
+  <> Iterates through every pair and prints it
+  for (key <- list(dict)) {
+    println(`${key}: ${dict[key]}`);
+  }
+}
+
+printNamed(\ a: "b", c: 4, hello: "world");
+<<
+Passes {"a": "b", "c": 4, "hello": "world"} in to printNamed as dict
+Prints out:
+a: b
+c: 4
+hello: world
+<<
+```
+
 #### Asynchronous Functions
 
 By adding the keyword '**async**' after the **fn** keyword, we can make the function asynchronous.
