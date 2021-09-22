@@ -90,7 +90,3 @@
 
 - `getattr<instance, attribute>` : Uses the vanilla get method to access the instances value.
 - `hasattr<instance, attribute>` : Returns true if the instance has the attribute in question.
-
-## Internal
-
-- `_version_` : Returns the version number of your JPizza installation.
