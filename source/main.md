@@ -117,6 +117,16 @@ x => 4;
 y => "Goodbye!"; <> Throws an error since y is a baked variable.
 ```
 
+You can declare multiple variables as null in the same statement by seperating each by a comma.
+
+```jpizza
+var x, y, z;
+<> Declares x, y, and z! All are set to null.
+
+x => 1; y => 2; z => 3;
+<> Works!
+```
+
 If you want to remove a variable from the scope, you can use the `free` keyword followed by the variable name.
 
 ```jpizza
@@ -151,6 +161,16 @@ you can statically type them using the hash operator followed by the variable ty
 ```jpizza
 var x#num => 4;
 <> Sets the type of variable x to be a number.
+
+x => 8; <> Ok!
+x => "Hello!"; <> Error!
+```
+
+To statically type variables quickly, you can use the **let** keyword, by doing `let x => value;`. This will automatically statically type `x` to the type of `value`.
+
+```jpizza
+let x => 4;
+<> Sets x to 4 and statically types x to the type of 4, which is a number.
 
 x => 8; <> Ok!
 x => "Hello!"; <> Error!
