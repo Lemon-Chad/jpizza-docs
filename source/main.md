@@ -1037,25 +1037,36 @@ name of the object and curly braces, (`{}`). Inside the curly braces will be all
 
 ##### How to Declare Attributes
 
-First, object attributes must be listed as the first line of code.
-The name of each attribute must be seperated by a comma, and the line should end in a semicolon.
+There are many ways to declare attributes, but attributes must be declared otherwise they will not stay inside the object.
+
+The simplest way is to simply list off the attribute names, each seperated by a comma. You can also list each off one at a time. To assign a default value to an attribute, you can have the attribute name followed by an arrow and then the value, like variable assignment. To statically type an attribute, you can follow the name with a colon and then the type. 
+
+Finally, you can add modifiers to attributes. You can use the `pub` keyword to make them public, meaning they can be accessed outside of the object, which is the default. Prefixing it with `prv` makes it private, so it can only be accessed internally. The `static` modifier makes it so that it can be accessed from the object directly, and not from an instance.
 
 ```jpizza
 recipe Pizza {
   topping, breading;
-  <> Declares the attributes topping and breading.
+
+  topping;
+  breading;
+
+  topping: String => "...";
+  breading: String => "...";
+
+  pub topping;
+  prv breading => "Shh!";
+
+  static topping => "topping being worked on...";
+  static breading => "breading in progress...";
+  <> Declares the attributes topping and breading in several different ways to show off the different methods.
 };
 ```
 
 ##### How to Access and Set Attributes
 
-Attributes can only be accessed using the '**this**' keyword or by using the '**attr**' keyword.
+Attributes can be accessed similar to variables, by simply referencing the associated name. However, if there is a variable in scope of the same name, there are alternative methods. You can use the `this` keyword followed by the double colon operator, (`::`), and then the identifier. You can also use the **attr** keyword followed by the identifier.
 
-When using the **this** keyword, follow it with the double colon operator, (`::`), followed by
-the attribute name.
-
-When using the **attr** keyword, follow it with the name of the attribute. If you want to assign
-a value to an attribute, follow the name with an arrow and then the value you want to assign to it.
+To set attributes, you can set them similar to variables, by following the identifier with an arrow and a value, however if there is a varible in scope of the same name, you can use alternative methods. You can use the **attr** keyword followed by the identifier, an arrow, and a value.
 
 #### Constructor
 
@@ -1089,8 +1100,7 @@ recipe Pizza {
 
 ##### Complex Constructors
 
-Constructors support the same static typing and default arguments as functions,
-however, they do not return a value.
+Constructors support the same complex features as functions, but constructors do not return a value.
 
 You can also use generic typing on constructors the same as you would functions. To pass in generic types, you would simply append the generic types to the end of the class call in angle brackets.
 
@@ -1120,8 +1130,7 @@ recipe Pizza {
 
 ##### Complex Methods
 
-Methods support static typing, asynchronous execution, generic typing, and default arguments
-just like functions.
+Methods support static typing, asynchronous execution, generic typing, default arguments, and everything else functions have.
 
 However, methods have another special trait, which is the '**bin**' keyword.
 **Bin** is short for built-in, and allows you to override built-in methods, like
@@ -1143,6 +1152,25 @@ recipe Number {
 };
 ```
 
+Methods also share the same modifiers as attributes, such as `pub`, `prv`, and `static`. By default, methods are public, but if you use a lot of different publicities, specifying `pub` may help.
+
+To apply these modifiers, simply write them after the **method** keyword.
+
+```jpizza
+recipe MyCoolMethods {
+  method pub publicMethod {
+    println("I am public!");
+  }
+
+  method prv privateMethod {
+    println("I am private! Wait, how did you call me??");
+  }
+
+  method static staticMethod {
+    println("You can call me anywhere!");
+  }
+};
+```
 
 ### Using Objects
 
