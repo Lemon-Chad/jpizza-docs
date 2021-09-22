@@ -216,6 +216,10 @@ Keys should be given as strings, like `"a"`, `" "`, or `"enter"`.
 
 - `playSound<filepath>` : Plays the sound at the path.
 
+### General Functions
+
+- `chooseFile<path, filter, mode>` : Opens a file picker and returns the chosen file. Originates at the given path. Opens a save prompt if the mode is `awt::SAVE`, opens an open prompt if the mode is `awt::OPEN`. If the given filter is `null`, no filter will be applied. Otherwise, a filter should be given in the format `["Message to display", "extension"]`, such as `["PNG files (*.png)", "png"]`.
+
 ### Boilerplate
 
 Some simple boilerplate code for creating an app is provided below.
