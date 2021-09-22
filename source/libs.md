@@ -44,6 +44,21 @@ Returns true if the file had to be created, false otherwise.
 - `writeSerial<dir, value>` : Serializes the given value and stores it at the given path. If the value is a bytearray, the bytes will be written to the file. 
 If the file does not exist, it will be created. Returns true if the file had to be created, false otherwise.
 
+## Sys
+
+`import sys;`
+
+- `os` : Returns the users OS as a string.
+- `home` : Returns the users home path.
+- `execute<cmd>` : Executes the given command in the command line and returns the output.
+- `disableOut` : Disables output to the console.
+- `enableOut` : Enables output to the console.
+- `jpv` : Returns the current JPizza version.
+- `envVarExists<var>` : Returns if an environment variable exists or not.
+- `getEnvVar<var>` : Returns the value of the given environment variable. Throws an error if it doesn't exist.
+- `getProp<prop>` : Gets the given system property.
+- `setProp<prop, val>` : Sets the given system property to the given value.
+
 ## HTTPx
 
 `import httpx;`
