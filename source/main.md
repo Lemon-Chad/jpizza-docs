@@ -208,6 +208,8 @@ seperated by a comma.
 List elements can be accessed by enclosing the index you want to access in square brackets
 following the list.
 
+If you use a negative number to access a list index, it counts backwards.
+
 Items can be appended to the list using the modulo operator, and removed using the division operator.
 
 You can extend lists by other lists using the plus operator.
@@ -747,6 +749,8 @@ Simply insert your code inside the braces to set it to the body.
 If you want to return a value, you must say it explicitly using the '**return**' keyword
 followed by the return value.
 
+You can also return the last line of code automatically by omitting the semicolon on the last line.
+
 ```jpizza
 fn add<x, y> {
     return x + y;
@@ -1234,13 +1238,50 @@ println(Child(5)::inheritedFunction(2));
 <> Prints 9, since 2 is added to x in the overridden constructor.
 ```
 
+## Scopes
+### What is a Scope?
+
+A scope can be thought of like a bubble that contains local variables, but once you exit the scope all the variables are lost. When you call a function, the code in the function is in a new scope, but then it exits the scope once the call finishes. This is why you can't access variables initialized inside the function.
+
+### How to Make a New Scope
+
+You can create a scope using the **scope** keyword followed by the code you want to run inside curly braces. You can also name scopes by putting the name inside square brackets after **scope**. This allows for a cleaner traceback in runtime errors.
+
+```jpizza
+var x => 5;
+
+scope [my_cool_scope] {
+  var y => 15;
+  println(x + y);
+}
+<> The variable y can no longer be used!
+
+scope {
+  println("Unnamed scope!");
+}
+```
+
+### Returning Values from Scopes
+
+You can return values from scopes just like in functions, and you can then use that value in your code.
+
+```jpizza
+var x => scope {
+  var y => 9 + 10;
+  return y;
+} <> Assigns x to the return value of the scope, 21 in this case.
+```
+
 ## Packages
+### Scripts
 A useful feature of Pizza is the import and packages system.
 
 You can import scripts with the '**import**' keyword followed by the script name,
 (*minus the file extension*). This allows you to access all the script's attributes
 like its functions, variables, classes, and other components. This can be done
 similarly to accessing class attributes, using the double colon operator, (`::`).
+
+To import the script under a different name, you can use the **as** keyword followed by the preferred name.
 
 You can import both local and global scripts. To make a script global, make a new folder
 under `~/.jpizza/modules/` with the same name as the script, (*minus the file extension*), 
@@ -1259,9 +1300,15 @@ import otherScript;
 
 otherScript::sayHello();
 <> Prints "Hello another world!".
+
+import otherScript as o_script;
+<> Imports otherScript with the name o_script.
+
+o_script::sayHello();
+<> Also prints "Hello another world!".
 ```
 
-## Extensions
+### Extensions
 You can extend JPizza with extensions written in Java that function as packs of new libraries. This can be done with the **extend** keyword followed by the extension name (*minus the file extension*). This gives you access to all of the libraries the extension has, which can then be imported.
 
 You can extend both local and global extensions. To make an extension global, make a new folder under `~/.jpizza/extensions/` with the same name as the extension, (*minus the file extension*), and then put the jar in there.
@@ -1273,6 +1320,38 @@ import mycoollibrary;
 mycoollibrary::myCoolFunction();
 <> Runs myCoolFunction
 ```
+
+### Destructuring
+You can use a feature known as destructuring to extract certain methods from imports and use them in the global scope. This can generally be applied to any data object such as classes and structs, but is most useful in the case of imports.
+
+To destructure an object, simply do **var** followed by each attribute name separated by spaces inside of curly braces. Then follow that with an assignment arrow and the expression you want to destructure, in this case an import.
+
+To destructure everything from an import, you can use a star (`*`) inside curly braces instead of names.
+
+```jpizza
+<> otherScript.devp
+
+fn sayHello -> println("Hello another world!");
+
+fn sayGoodbye -> println("Goodbye another world!");
+```
+
+```jpizza
+<> mainScript.devp
+
+var { sayHello } => import otherScript;
+<> Moves sayHello from otherScript into the current scope.
+
+sayHello();
+<> Prints "Hello another world!".
+
+var { * } => import otherScript;
+<> Moves all functions from otherScript into the current scope.
+
+sayGoodbye();
+<> Prints "Goodbye another world!".
+```
+
 
 ## Headers
 
