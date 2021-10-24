@@ -31,6 +31,12 @@ Returns true if the file had to be created, false otherwise.
 
 - `fileExists<dir>` : Returns true if the specified file exists, else false.
 - `makeDirs<dir>` : Makes all missing directories along the path.
+- `deleteFile<path>` : Deletes the file at the given path.
+
+### Directories
+
+- `listDirContents<dir>` : Returns a list of the directories contents.
+- `isDirectory<path>` : Returns true if the given path is a directory, else false.
 
 ### Working Directory
 
@@ -58,6 +64,7 @@ If the file does not exist, it will be created. Returns true if the file had to 
 - `getEnvVar<var>` : Returns the value of the given environment variable. Throws an error if it doesn't exist.
 - `getProp<prop>` : Gets the given system property.
 - `setProp<prop, val>` : Sets the given system property to the given value.
+- `exit<code>` : Exits the program with the given code.
 
 ## HTTPx
 
@@ -164,7 +171,8 @@ To start using `awt`, you must call `awt::init()`. If not, all other functions w
 - `drawRect<length, x, y, color>` : Draws a square of the given color with the center at (x, y) with dimensions length x length.
 - `drawText<text, x, y, color>` : Writes text at (x, y) in the given color.
 - `drawImage<x, y, filepath>` : Draws the image at the given path at (x, y).
-- `setPixel<x, y, color>` : Sets the pixel at (x, y) to the given color. 
+- `setPixel<x, y, color>` : Sets the pixel at (x, y) to the given color.
+- `drawLine<start, end, color>` : Draws a line from the start point to the end point in the given color.
 
 ### Config
 
@@ -177,6 +185,8 @@ To start using `awt`, you must call `awt::init()`. If not, all other functions w
     - `"P"` -> Plain
 - `setBackgroundColor<color>` : Sets the background to the given color.
 - `lockSize<bool>` : Disables/enables the ability to resize the window.
+- `setStrokeSize<width>` : Changes the stroke size.
+- `exit` : Exits the window.
 
 ### Rendering
 
