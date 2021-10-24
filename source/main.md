@@ -8,11 +8,8 @@ You can declare comments in JPizza using two angle brackets facing away from eac
 
 You can also make multiline comments using two left facing angle brackets as the opening and closing.
 
-You can exit single line comments early using a semicolon.
-
 ```jpizza
 <> This is a comment.
-<> This comment stops; "here.";
 
 <<
 This is a multiline comment.
@@ -105,14 +102,14 @@ Similar to algebra, you can enter commands such as `3x` as a shorthand for `3 * 
 
 Variables are defined using the keywords '**var**' and '**bake**'.
 
-**Bake** permanently sets a variables value, to where it cannot be changed.
+**Bake** permanently sets a variables value, to where it cannot be changed. You can also use **const** as an alternative to this keyword.
 
 After variables are defined, they can be set with the **var** keyword omitted. 
 This will set the variable of the same name in the most recent scope.
 
 ```jpizza
 var x  => 3;
-bake y => "Hello!";
+bake y => "Hello!"; <> const y => "Hello!"; works also
 x => 4;
 y => "Goodbye!"; <> Throws an error since y is a baked variable.
 ```
@@ -773,6 +770,12 @@ println(add(3, 4));
 <> Prints 7, since 3 and 4 are passed in as x and y, and add returns x + y.
 ```
 
+You can also spread a list of arguments out over a function using the spread operator (`..`) followed by the list.
+
+```jpizza
+println(add(..[3, 4])); <> This is the same as add(3, 4), it spreads out the values into the arguments.
+```
+
 ### Complex Functions
 
 #### Static Typing
@@ -1030,8 +1033,10 @@ other operations.
 
 ### How to Make an Object
 
-Due to this being JPizza, objects are defined using the '**recipe**' keyword, followed by the
+Due to this being JPizza, objects are defined using the '**class**' keyword, followed by the
 name of the object and curly braces, (`{}`). Inside the curly braces will be all of our code.
+
+*Note: the original keyword for objects was **recipe** to fit the Pizza theme, but it was changed to **class** to be more standardized. You can also use **obj**!*
 
 #### Attributes
 
@@ -1044,7 +1049,7 @@ The simplest way is to simply list off the attribute names, each seperated by a 
 Finally, you can add modifiers to attributes. You can use the `pub` keyword to make them public, meaning they can be accessed outside of the object, which is the default. Prefixing it with `prv` makes it private, so it can only be accessed internally. The `static` modifier makes it so that it can be accessed from the object directly, and not from an instance.
 
 ```jpizza
-recipe Pizza {
+class Pizza {
   topping, breading;
 
   topping;
@@ -1059,7 +1064,7 @@ recipe Pizza {
   static topping => "topping being worked on...";
   static breading => "breading in progress...";
   <> Declares the attributes topping and breading in several different ways to show off the different methods.
-};
+}
 ```
 
 ##### How to Access and Set Attributes
@@ -1083,7 +1088,7 @@ similar to a function. Angle brackets with the parameters inside, omitt if there
 Finally, use curly braces, (`{}`), with your constructor code inside.
 
 ```jpizza
-recipe Pizza {
+class Pizza {
   topping, breading;
   <> Declares the attributes topping and breading.
   
@@ -1095,7 +1100,7 @@ recipe Pizza {
     <> then assigns toppings to t and breading to b.
   }
   
-};
+}
 ```
 
 ##### Complex Constructors
@@ -1116,12 +1121,13 @@ can use both brace and arrow form, but they cannot be anonymous.
 
 ##### How to Make a Method
 
-To define a method, use the '**method**' keyword, followed by the arguments and the body.
+To define a method, use the '**mthd**' keyword, followed by the arguments and the body.
+*Note: you can also use **md** or **method** instead of **mthd**.*
 
 ```jpizza
-recipe Pizza {
+class Pizza {
   ... <> Previous code.
-  method details {
+  mthd details {
     println("I am a pizza with " + this::breading
               + "breading and " + this::topping + ".");
   }
@@ -1136,40 +1142,40 @@ However, methods have another special trait, which is the '**bin**' keyword.
 **Bin** is short for built-in, and allows you to override built-in methods, like
 addition.
 
-To make a method a **bin** method, simply write the **bin** keyword after the **method**
+To make a method a **bin** method, simply write the **bin** keyword after the **mthd**
 keyword.
 
 ```jpizza
-recipe Number {
+class Number {
   value;
   ingredients<val> {
     attr value => val;
   }
   
-  method bin add<o> -> this::value + o::value
+  mthd bin add<o> -> this::value + o::value
   <> Overrides the built-in addition function.
-  
-};
+
+}
 ```
 
 Methods also share the same modifiers as attributes, such as `pub`, `prv`, and `static`. By default, methods are public, but if you use a lot of different publicities, specifying `pub` may help.
 
-To apply these modifiers, simply write them after the **method** keyword.
+To apply these modifiers, simply write them after the **mthd** keyword.
 
 ```jpizza
-recipe MyCoolMethods {
-  method pub publicMethod {
+class MyCoolMethods {
+  mthd pub publicMethod {
     println("I am public!");
   }
 
-  method prv privateMethod {
+  mthd prv privateMethod {
     println("I am private! Wait, how did you call me??");
   }
 
-  method static staticMethod {
+  mthd static staticMethod {
     println("You can call me anywhere!");
   }
-};
+}
 ```
 
 ### Using Objects
@@ -1181,9 +1187,9 @@ You can access methods and attributes of the instance using the double colon ope
 On the left of the operator should be the instance, and the attribute/method name should be on the right.
 
 ```jpizza
-recipe Pizza {
+class Pizza {
   ...
-};
+}
 
 var myPizza => Pizza("sausage", "pretzel");
 <> Creates a new pizza, passing "sausage" and "pretzel" into the constructor.
@@ -1204,22 +1210,22 @@ overwritten simply by defining it in the object, but it's useful if you have sev
 To give an object a parent, you can use the temporary assignment arrow, (`->`), after the object name and follow it with the name of the parent object.
 
 ```jpizza
-recipe Parent {
+class Parent {
   inheritedAttribute;
   ingredients<x> {
     attr inheritedAttribute => x;
   }
 
-  method inheritedFunction<y> -> this::inheritedAttribute + y
+  mthd inheritedFunction<y> -> this::inheritedAttribute + y
 
-};
+}
 
-recipe Child -> Parent {
+class Child -> Parent {
   ingredients<x> {
     attr inheritedAttribute => x + 2;
     <> Overrides the default constructor and replaces it with this one, which adds 2 to x before assigning it to v.
   }
-};
+}
 
 println(Parent(5)::inheritedFunction(2));
 <> Prints 7.
