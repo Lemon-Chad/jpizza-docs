@@ -35,6 +35,7 @@
 - `contains<list, value>` : Returns true if the list contains the value.
 - `sublist<list, start, end>` : Returns the sublist between the start and end indices.
 - `join<str, list>` : Returns a string of each item in the list seperated by `str`, for example: `join(" ", ["Hello,", "World!"]) -> "Hello, World!"`
+- `indexOf<list, item>` : Returns the index of the item in the list. Returns -1 if the item is not in the list.
 
 ## Dictionary Modifiers
 
@@ -85,6 +86,9 @@
 - `strUnshift<string>` : Returns the string with all characters in their form if you were to not hold shift. (Inverse of `strShift`)
 - `substr<str, start, end>` : Returns the substring between the start and end indices.
 - `replace<str, old, new>` : Replaces each instance of `old` in `str` with `new`.
+- `escape<str>` : Escapes every escape sequence in the string. For example, `"\\n"` turns into `"\n"`.
+- `unescape<str>` : Unescapes every escape sequence in the string. For example, `"\n"` turns into `"\\n"`.
+- `parseNum<str>` : Parses the string as a number.
 
 ## Object Functions
 
