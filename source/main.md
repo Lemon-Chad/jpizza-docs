@@ -1334,7 +1334,7 @@ The first function is `ok`. Doing `ok(res)` will return a bool determining wheth
 If our object is error free, we can safely call `resolve(res)`, which will return the value of the **Resolve**. Beware! If there is an error and
 no value, this will throw an error. Always do some form of `if (ok(res))` before.
 
-The next function is `catch(res)`, which will return the error message of the object. We can then handle the error as we please.
+The next function is `catch(res)`, which will return the error type and error message of the object as a list. We can then handle the error as we please.
 
 If we want to throw the error anyway, we can call `fail(res)`, which throws the error stored.
 
@@ -1350,7 +1350,7 @@ if (ok(res)) {
 
 } else {
   println("Encountered error: " + catch(res));
-  <> Prints "Encountered error: <Error Message>".
+  <> Prints "Encountered error: [<Error Name>, <Error Message>]".
 
 }
 
