@@ -1325,6 +1325,8 @@ fn myIffyFunction[] {
 <> This function will fail 50% of the time and return a random number the other 50%.
 ```
 
+*Note about 'throw': If you provide two strings separated by a comma, it will use the first string as the error type and the second as the details.*
+
 ### Handling Resolves
 
 There are several special functions that we can use to handle **Resolves**. 
@@ -1354,4 +1356,24 @@ if (ok(res)) {
 
 }
 
+```
+
+## Intended Errors
+
+### Throw
+
+Like mentioned in the chapter 'Error Handling', we can use **throw** to throw a custom error. Throw can be used in two forms, we can provide a single string that will be used as the error message, or two strings that will be the error name and error message. If no error name is provided, it will default to "Thrown".
+
+```jpizza
+throw "Custom Error Type", "You suck!!";
+throw "You suck, generally!!";
+```
+
+### Assertion
+
+Assertion allows you to throw errors if a given condition is false. Assertions can be defined by simply using the **assert** keyword followed by a condition.
+
+```jpizza
+assert "abc" == "abc"; <> Ok!
+assert  123  ==  456 ; <> Uh oh! Assertion Error is brought up!
 ```
