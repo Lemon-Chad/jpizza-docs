@@ -370,27 +370,52 @@ switch (4) {
 
 Match statements are similar to switch statements in structure, but different in execution.
 Match statements return a value when their case is matched, and they are immune to fall-through.
+Match statements also have the ability to use the pattern matching feature, which will be elaborated on momentarily.
 
 To declare a match statement, start with the '**match**' keyword followed by the value you want to
 compare in parentheses. Then follow it with curly braces, (`{}`).
 
 Inside the braces are the cases. To declare a new case, start with the keyword '**case**' followed by
 the value you want to check. Follow the value with a temporary assignment arrow, (`->`) followed by the value you
-want to return.
+want to return and then a semicolon.
 
 To add a default case, you can use the '**default**' keyword followed by an arrow, and the value you want to
 return.
 
 ```jpizza
 println(match (4) {
-    case 2 -> 4
-    case 4 -> 8
-    case 8 -> 12
+    case 2 -> 4;
+    case 4 -> 8;
+    case 8 -> 12;
     
-    default -> 0
+    default -> 0;
 });
 
 <> Prints the matching value, which is 8 in this case.
+```
+
+You can also use pattern matching, which allows you to declare a special statement called a pattern and use that to extract or test specific attributes against an object. The general syntax for pattern matching is the object name followed by parenthesis. Inside of the parenthesis should be the attribute name followed by a colon and then the expected value, each separated by a comma. You can make the expected value a variable that does not exist, and it will instead assign the value of the attribute to that variable if the rest of the pattern matches. You can also omit the colon and expected value and it will automatically set the expected value to be a variable that is the same name as the attribute.
+
+```jpizza
+class Box {
+  pub value;
+  ingredients<x> {
+    value => x;
+  }
+}
+
+var example => Box(123);
+match (example) {
+  Box(value: 456) -> println("Is Box(456)");
+  <> Tests if its a Box where the attribute 'value' is 456.
+
+  Box(value: x) -> println(`Is Box(${x}`);
+  <> Tests if its a Box, and assigns the attribute 'value' to the variable x.
+
+  Box(value) -> println(`Is Box(${x})`);
+  <> Tests if its a Box, and assigns the attribute 'value' to the variable value.
+  <> Same thing as Box(value: value)
+};
 ```
 
 ## Loops
@@ -816,6 +841,15 @@ Console Output:
 <<
 ```
 
+Generic types can also be inferred. If the type has an argument that uses that type and the type is omitted, it will automatically infer that the type will be the same as the variable. This allows you to simplify the above call to:
+
+```jpizza
+myGeneric(2); 
+<> Since x is of type T, and the 
+<> provided x has a type of num,
+<> it infers that T is num
+```
+
 #### Default Arguments
 
 We can do even more with arguments after this too. We can add default values to arguments,
@@ -946,13 +980,30 @@ and then the enum name.
 
 ```jpizza
 enum PizzaToppings {
-  sausage,
-  pineapple,
-  pepperoni,
-};
+  Sausage,
+  Pineapple,
+  Pepperoni,
+}
 
-var favorite => PizzaToppings::sausage;
-if (favorite == PizzaToppings::pineapple) {
+var favorite => PizzaToppings::Sausage;
+if (favorite == PizzaToppings::Pineapple) {
+  println("You are mentally unstable.");
+}
+```
+
+### Public Enumerators
+
+You can also follow the **enum** keyword with **pub** to make each child publicly available.
+
+```jpizza
+enum pub PizzaToppings {
+  Sausage,
+  Pineapple,
+  Pepperoni,
+}
+
+var favorite => Sausage; <> Works!
+if (favorite == Pineapple) {
   println("You are mentally unstable.");
 }
 ```
@@ -964,14 +1015,26 @@ properties that can be accessed. You can add properties to children by adding cu
 
 ```jpizza
 enum Message {
-    Quit,
-    Move { x: num, y: num },
-    Write { text: any },
-    ChangeColor { r: num, g: num, b: num },
-};
+  Quit,
+  Move { x: num, y: num },
+  Write { text: any },
+  ChangeColor { r: num, g: num, b: num },
+}
 
 var write => Message::Write("mytext");
 println(write::text); <> Prints "mytext"
+```
+
+To statically type enums further, you can use generic types with enum properties.
+
+```jpizza
+enum Option {
+  Some(T){ val: T },
+  None
+}
+
+var x => Some(13);
+prinln(type(x)); <> Prints Option(num)
 ```
 
 ## Structures
@@ -996,7 +1059,7 @@ struct Vector3 {
   x,
   y,
   z
-};
+}
 
 <> Creates a new struct Vector3 with the attributes
 <> x, y, and z.
@@ -1015,7 +1078,7 @@ by the attribute name.
 struct Message {
   username,
   contents
-};
+}
 
 var msg => Message("John Doe", "Hello world!");
 <> Creates a new message instance.
@@ -1461,4 +1524,31 @@ Assertion allows you to throw errors if a given condition is false. Assertions c
 ```jpizza
 assert "abc" == "abc"; <> Ok!
 assert  123  ==  456 ; <> Uh oh! Assertion Error is brought up!
+```
+
+## References
+
+### What is a Reference?
+
+References work like boxes that contain a value. When a reference is copied or passed somewhere, it still contains the same value. References allow you to mutate the value inside, and it modifies the value across all references that use it.
+
+### How to Make a Reference
+
+You can make a reference using an ampersand (`&`) followed by the expression. You can dereference something, or get the value the reference is pointing to, by using a star (`*`).
+
+Assignment operations like `=>`, `+=`, `++`, and more are implemented on references, and directly mutate the value. This allows you to do things like edit items at list indices directly by making a list of references.
+
+```jpizza
+
+var lis => [&1, &2, &3, &4, &5];
+
+lis[0] => 23;
+lis[1]++;
+lis[2] -= 15;
+
+println(lis);
+<> Prints [23, 3, -12, 4, 5].
+
+println(3 + *lis[0]);
+<> Prints 26.
 ```
