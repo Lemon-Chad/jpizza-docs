@@ -286,8 +286,7 @@ if (true) {
     println("This will always run!");
 } elif (false) {
     println("This will never run. :(");
-}
- else {
+} else {
     println("If this ever runs, seek shelter immediately, 
              the world is ending.");
 }
@@ -1499,8 +1498,7 @@ if (ok(res)) {
   println(resolve(res));
   <> Prints the random number returned.
 
-}
- else {
+} else {
   println("Encountered error: " + catch(res));
   <> Prints "Encountered error: [<Error Name>, <Error Message>]".
 
