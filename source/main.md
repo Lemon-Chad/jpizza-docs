@@ -934,29 +934,25 @@ printTen("This is also asynchronous!");
 <> Both messages are printed ten times simultaneously.
 ```
 
-#### Processing
+#### Decorators
 
-Similar to Python's decorators, you can add pre/post processors to your functions using the `preprocess` and `postprocess` functions. Preprocessors are given the arguments that the parent function is given, and called in order of appendage. Postprocessors are given the arguments that the parent function is given ALONG WITH the parent functions return value. Whatever the postprocessor returns is considered the return value of the function. If there are multiple postprocessors, the return value will be that of the last postprocessor.
-
-*Bonus Feature: The preprocess and postprocess functions return the function they modify, so they can be chained!*
+Similar to other languages, JPizza suppports decorators. Decorators are functions that are called before the function they are decorating. They can be used to modify the behavior of the function they are decorating.
 
 ```jpizza
-fn myCoolFunc<x> -> x + 1;
+fn myDecorator<func> -> fn <x> {
+  println(x);
+  return func(x) + 1;
+}
 
-preprocess(myCoolFunc, !<x> -> println(x)), <> Assigns a preprocessor that prints the argument passed into it.
-postprocess(myCoolFunc, !<_, r> {
-  println(r);
-  return r;
-}); <> Assigns a postprocessor that prints the parent's return value before returning it.
+/myDecorator/
+fn coolFunc<x> -> 2x;
 
-<> Even though processors can be chained, I chose not to for readability in this example.
-
-myCoolFunc(5);
+println(coolFunc(3));
 
 <<
 Console Output:
-5
-6
+3
+7
 <<
 ```
 

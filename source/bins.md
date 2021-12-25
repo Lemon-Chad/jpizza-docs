@@ -19,24 +19,14 @@
 - `fastpow<other>` : Returns the object raised to the power of other.
 - `mod<other>` : Returns the object modulo other.
 
-## List Operations
+## Collection Operations
 
-- `append<other>` : Appends other to the object.
-- `extend<other>` : Extends the object by other.
-- `pop<other>` : Pops other from the object.
-- `remove<other>` : Removes other from the object.
-- `get<other>` : Returns `object.other`. (*Also used in dictionaries.*)
-- `bracket<other>` : Returns `object[other]`. (*Also used in dictionaries.*)
+- `get<other>` : Returns `object.other`.
+- `bracket<other>` : Returns `object[other]`.
 
 ## Conditionals
 
-- `also<other>` : Returns true if either other, and the object are true, else false.
-- `including<other>` : Returns true if both other, and the object are true, else false. 
 - `eq<other>` : Returns true if the object equals other.
 - `ne<other>` : Returns true if the object doesn't equal other.
 - `lt<other>` : Returns true if the object is less than other.
 - `lte<other>` : Returns true if the object is less than or equal to other.
-
-## Object Operations
-
-- `access<attribute>` : Returns the queried attribute.

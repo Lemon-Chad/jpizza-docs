@@ -8,7 +8,7 @@
 - `field<prompt>` : Prompts the user with the given text and waits for an input.
 - `nfield<prompt>` : Prompts the user with the given text and waits for a numerical input.
 - `clear` : Clears the console
-- `sim<text>` : Simulates the text as code and returns the output.
+- `sim<text>` : Simulates the text as code.
 - `run<filepath>` : Runs the given file.
   
 ## Type Checking
@@ -17,20 +17,18 @@
 - `isString<value>` : Returns if the given value is a string.
 - `isList<value>` : Returns if the given value is a list.
 - `isFunction<value>` : Returns if the given value is a function.
-- `isNull<value>` : Returns if the given value is null.
-- `isBool<value>` : Returns if the given value is boolean.
+- `isBoolean<value>` : Returns if the given value is boolean.
 - `type<value>` : Returns the type of the given value as a string.
-- `enumProps<inst, prop>` : Returns if the given instance is an instance of the provided enum property.
 
 ## List Modifiers
 
 - `append<list, value>` : Appends the given value to the list.
+- `remove<list, value>` : Removes the given value from the list.
 - `pop<list, index>` : Removes the item at the given index from the list.
 - `extend<list, list>` : Returns the concatenation of the two lists.
 - `insert<list, item, index>` : Inserts the given item at the given index of the list.
 - `setIndex<list, item, index>` : Sets the given index to the given item of the list.
 - `size<list>` : Returns the size of the given list.
-- `foreach<list, func>` : Applies the given function to each element of the list.
 - `choose<list>` : Chooses a random item from the list.
 - `contains<list, value>` : Returns true if the list contains the value.
 - `sublist<list, start, end>` : Returns the sublist between the start and end indices.
@@ -46,8 +44,6 @@
 
 ## Numerical Functions
 
-- `pi` : π.
-- `euler`: *e*.
 - `log<value, base>` : Gets the logarithm of the provided value using the base.
 - `round<value>` : Rounds the value to the nearest whole number.
 - `floor<value>` : Rounds the value down.
@@ -65,6 +61,7 @@
 - `arccos<x>` : Returns the inverse cosine of `x`.
 - `arctan<x>` : Returns the inverse tangent of `x`.
 - `arctan2<y, x>` : Returns the inverse tangent of `y` and `x`.
+- `doubleStr<number, precision>` : Returns the number as a string with the given decimal precision.
 
 ## Type Conversions
 
@@ -73,7 +70,6 @@
 - `bool<value>` : Converts the given value to boolean.
 - `list<value>` : Converts the given value to a list.
 - `dict<value>` : Converts the given value to a dictionary.
-- `func<value>` : Converts the given value to a function... for some reason.
 - `byter<value>` : Converts a list of numbers into a byte array.
 
 ## String Modifiers

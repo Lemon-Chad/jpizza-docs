@@ -14,5 +14,4 @@ Welcome to JPizza's documentation!
    heads.md
    libs.md
    stdlibs.md
-   jpx.md
    resource.md

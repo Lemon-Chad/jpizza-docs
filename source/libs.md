@@ -57,11 +57,13 @@ If the file does not exist, it will be created. Returns true if the file had to 
 - `os` : Returns the users OS as a string.
 - `home` : Returns the users home path.
 - `execute<cmd>` : Executes the given command in the command line and returns the output.
+- `executeFloor<cmdArgs>` : Executes the given command arguments in the command line and returns the output.
 - `disableOut` : Disables output to the console.
 - `enableOut` : Enables output to the console.
 - `jpv` : Returns the current JPizza version.
 - `envVarExists<var>` : Returns if an environment variable exists or not.
 - `getEnvVar<var>` : Returns the value of the given environment variable. Throws an error if it doesn't exist.
+- `setEnvVar<var, value>` : Sets the given environment variable to the given value.
 - `getProp<prop>` : Gets the given system property.
 - `setProp<prop, val>` : Sets the given system property to the given value.
 - `exit<code>` : Exits the program with the given code.
