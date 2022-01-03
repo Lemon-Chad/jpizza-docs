@@ -170,7 +170,7 @@ To start using `awt`, you must call `awt::init()`. If not, all other functions w
 - `drawOval<x, y, width, height, color>` : Draws an oval of the given color with the center at (x, y) with dimensions width x height.
 - `drawCircle<r, x, y, color>` : Draws a circle of the given color with the center at (x, y) and a radius of r.
 - `drawRect<x, y, width, height, color>` : Draws a rectangle of the given color with the center at (x, y) with dimensions width x height.
-- `drawRect<length, x, y, color>` : Draws a square of the given color with the center at (x, y) with dimensions length x length.
+- `drawSquare<length, x, y, color>` : Draws a square of the given color with the center at (x, y) with dimensions length x length.
 - `drawText<text, x, y, color>` : Writes text at (x, y) in the given color.
 - `drawImage<x, y, filepath>` : Draws the image at the given path at (x, y).
 - `setPixel<x, y, color>` : Sets the pixel at (x, y) to the given color.
@@ -195,7 +195,7 @@ To start using `awt`, you must call `awt::init()`. If not, all other functions w
 - `start` : Starts rendering and opens the window.
 - `clear` : Clears the canvas.
 - `refresh` : Refreshes the canvas.
-- `refreshLoop` : Refreshs the canvas at 60fps in the background.
+- `refreshLoop<refreshRate>` : Refreshs the canvas at the given refresh rate in the background.
 - `refreshUnloop` : Stops the refresh loop.
 - `screenshot<filepath>` : Saves the current canvas to an image file which will be stored at the given path.
 - `fps` : Returns the given FPS.
