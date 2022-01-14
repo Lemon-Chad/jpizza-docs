@@ -153,10 +153,10 @@ println(y); <> Prints 64, since x^2 is now 64.
 An additional feature for variables is static typing.
 
 Although JPizza is dynamically typed, meaning that variables can store any type of data, 
-you can statically type them using the hash operator followed by the variable type.
+you can statically type them using a colon followed by the variable type.
 
 ```jpizza
-var x#num => 4;
+var x: num => 4;
 <> Sets the type of variable x to be a number.
 
 x => 8; <> Ok!
@@ -812,18 +812,18 @@ println(add(..[3, 4])); <> This is the same as add(3, 4), it spreads out the val
 You can expand upon functions to use static typing rules like with variables earlier.
 
 You can statically type arguments the same we statically type variables, by following the
-identifier with a hash symbol and then the type name.
+identifier with a colon and then the type name.
 
-To statically type the return value, insert an equals sign and then the type name before the
+To statically type the return value, insert either the keyword '**yields**' or a colon and then the type name before the
 body of the function.
 
 ```jpizza
-fn add<x#num, y#num> = num {
+fn add<x: num, y: num> yields num {
     return x + y;
 }
 
 <> Statically types x and y to be numbers.
-<> = num makes the return value a number.
+<> yields num makes the return value a number.
 ```
 
 #### Generic Typing
@@ -831,7 +831,7 @@ fn add<x#num, y#num> = num {
 Along with static typing, you can use generic typing. Simply follow the arguments with parenthesis containing the generic type names. When calling the function, pass in the types inside angle brackets after the arguments.
 
 ```jpizza
-fn myGeneric<x #T>(T) -> println(`${x} has a generic type of ${T}`);
+fn myGeneric<x: T>(T) -> println(`${x} has a generic type of ${T}`);
 
 myGeneric(2)<num>;
 
@@ -860,7 +860,7 @@ To add a default value, simply follow the argument with an equals sign and then 
 value.
 
 ```jpizza
-fn add<x#num, y#num = 1> = num {
+fn add<x: num, y: num = 1> yields num {
     return x + y;
 }
 
@@ -1428,7 +1428,7 @@ one argument, which is the command line arguments.
 ```jpizza
 #func myMainFunction;
 
-fn myMainFunction<args#list> {
+fn myMainFunction<args: list> {
   println("Hello world!");
 }
 
