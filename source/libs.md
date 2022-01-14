@@ -163,6 +163,23 @@ Colors for `awt` should be a list of 3 integers in the range 0 to 255, like `[25
 
 To start using `awt`, you must call `awt::init()`. If not, all other functions will fail!
 
+### Window Functions
+
+You can create multiple windows, but only one can be active at a time.
+
+The library stores an array of all windows, and the active window. You can change the index of the active window by calling `awt::setWindow(index)`.
+
+The library has a "focus window" that when closed, will exit the program. You can change the focus window by calling `awt::focuswWindow()` to focus the current window.
+
+- `awt::createWindow` : Creates a new window and returns its index.
+- `awt::setWindow<index>` : Sets the active window to the given index.
+- `awt::focusWindow` : Sets the focus window to the current window.
+- `awt::windowIndex` : Returns the index of the current window.
+- `awt::windowCount` : Returns the number of windows.
+- `awt::width` : Returns the width of the current window.
+- `awt::height` : Returns the height of the current window.
+
+
 ### Draw Functions
 
 - `drawPoly<points, color>` : Draws a polygon with the vertices being the given points and shaded in the given color.
@@ -172,7 +189,8 @@ To start using `awt`, you must call `awt::init()`. If not, all other functions w
 - `drawRect<x, y, width, height, color>` : Draws a rectangle of the given color with the center at (x, y) with dimensions width x height.
 - `drawSquare<length, x, y, color>` : Draws a square of the given color with the center at (x, y) with dimensions length x length.
 - `drawText<text, x, y, color>` : Writes text at (x, y) in the given color.
-- `drawImage<x, y, filepath>` : Draws the image at the given path at (x, y).
+- `drawImage<filepath, x, y>` : Draws the image at the given path at (x, y).
+- `drawSizedImage<filepath, x, y, w, h>` : Draws the image at the given path at (x, y) with the given dimensions w x h.
 - `setPixel<x, y, color>` : Sets the pixel at (x, y) to the given color.
 - `drawLine<start, end, color>` : Draws a line from the start point to the end point in the given color.
 
@@ -208,6 +226,7 @@ as they're called. With QRendering, the functions are put on to a sort of stack,
 you're doing lots of drawing, as you might rerender the screen while only half of your drawing is complete. QRendering makes it so that everything will render at once.
 
 - `toggleQRender` : Toggles QRendering.
+- `qrender` : Toggles QRendering (alias for toggleQRender).
 - `qUpdate` : Pushs all the changes to the canvas.
 
 ### Mouse Input
