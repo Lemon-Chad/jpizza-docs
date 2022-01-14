@@ -39,6 +39,7 @@
 
 - `get<dict, key>` : Returns the value of a key in the dictionary.
 - `set<dict, key, value>` : Sets the value of a key in the dictionary.
+- `overset<dict, key, value>` : Replaces the value of a key in the dictionary if it exists.
 - `delete<dict, key>` : Removes a key from the dictionary.
 - `contains<dict, value>` : Returns true if the dictionary contains the value.
 
@@ -71,6 +72,8 @@
 - `list<value>` : Converts the given value to a list.
 - `dict<value>` : Converts the given value to a dictionary.
 - `byter<value>` : Converts a list of numbers into a byte array.
+- `chr<value>` : Converts a number into a character.
+- `chrs<value>` : Converts a list of numbers into a string.
 
 ## String Modifiers
 
