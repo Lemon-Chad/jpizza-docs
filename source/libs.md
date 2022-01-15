@@ -113,40 +113,20 @@ The expected return type should be of:
 }
 ```
 
+## Puddle
 
-## Sockets
-
-`import sockets;`
-
-**NOTE**: *The native sockets library is not recommended, it is easier to use the socks external library instead.*
-
-### Constructors
-
-- `newServer<port>` : Returns a server ID that can be used in other functions.
-- `newClient<host, port>` : Returns a client ID that can be used in other functions.
+`import pdl;`
 
 ### Server Functions
 
-- `connect<serverID>` : Waits for a connection and then returns a connection ID that can be used in other functions.
-- `closeServer<serverID>` : Closes the server and all its connections.
+- `host<port>` : Starts a server on the given port and returns the server ID.
+- `accept<id>` : Accepts a connection from the server with the given ID and returns a connection ID.
 
 ### Connection Functions
 
-- `serverSend<connID, msg>` : Sends the given msg to the connection.
-- `serverSendBytes<connID, bytearray>` : Sends the given byte array to the connection.
-- `serverRecv<connID>` : Recieves data from the connection.
-- `serverRecvBytes<connID, length>` : Recieves a byte array from the connection of the given length.
-- `serverRecvAllBytes<connID>` : Recieves a byte array from the connection.
-- `closeServerConnection<connID>` : Closes the given connection.
-
-### Client Functions
-
-- `clientSend<clientID, msg>` : Sends the server the given msg through the client.
-- `clientSendBytes<clientID, bytearray>` : Sends the server the given byte array through the client.
-- `clientRecv<clientID>` : Recieves data from the server.
-- `clientRecvBytes<clientID, length>` : Recieves a byte array from the server of the given length.
-- `clientRecvAllBytes<clientID>` : Recieves a byte array from the server.
-- `clientClose<clientID>` : Closes the client connection.
+- `connect<host, port>` : Connects to the given host and port and returns a connection ID.
+- `write<id, bytes, offset, len>` : Writes the given bytes to the connection with the given ID.
+- `read<id, offset, len>` : Reads bytes from the connection with the given ID.
 
 ## JSON
 
