@@ -139,7 +139,7 @@ The expected return type should be of:
 
 `import awt;`
 
-Colors for `awt` should be a list of 3 integers in the range 0 to 255, like `[255, 0, 0]` for red. `[r, g, b]`
+Colors for `awt` should be a Tuple of 3 integers in the range 0 to 255, like `Tuple(255, 0, 0)` for red. `Tuple(r, g, b)`
 
 To start using `awt`, you must call `awt::init()`. If not, all other functions will fail!
 
@@ -236,15 +236,16 @@ Keys should be given as strings, like `"a"`, `" "`, or `"enter"`.
 Some simple boilerplate code for creating an app is provided below.
 
 ```jpizza
+var { Tuple } => import std;
 import awt;
 awt::init();
 
 awt::setSize(800, 800);
 awt::start();
 
-awt::refreshLoop();
+awt::refreshLoop(1000 / 60);
 awt::toggleQRender();
 
-awt::drawCircle(100, 400, 400, [50, 50, 50]);
+awt::drawCircle(100, 400, 400, Tuple(50, 50, 50));
 awt::qUpdate();
 ```
