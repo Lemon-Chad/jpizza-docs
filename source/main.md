@@ -108,7 +108,7 @@ After variables are defined, they can be set with the **var** keyword omitted.
 This will set the variable of the same name in the most recent scope.
 
 ```jpizza
-var x  => 3;
+var x => 3;
 bake y => "Hello!"; <> const y => "Hello!"; works also
 x => 4;
 y => "Goodbye!"; <> Throws an error since y is a baked variable.
